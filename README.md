@@ -1,5 +1,5 @@
-# space-station
-Unity Space Station for COMP 4010
+# Programming Assessment 1 Room 4 Space Station 
+Virtual Reality COMP 4010
 
 # Aim: 
 The main aim of this assignment is to introduce the concepts of constructing a virtual 
