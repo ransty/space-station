@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	public float playerSpeed = 5.0f, sensitivity = 2f, jumpForce = 4f;
+	public float playerSpeed = 5.0f, sensitivity = 2f, jumpForce = 10f;
 	public bool invertedAxis = false;
 
 	CharacterController player;
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 
 		//player = gameObject, gameObject = transform
 		//Vector3 = position
-		transform.position = new Vector3 (0, 0.8f, 0); //player spawn
+		transform.position = new Vector3 (5f, 0.5f, 0); //player spawn
 
 	}
 	
