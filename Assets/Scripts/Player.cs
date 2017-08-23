@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	public float playerSpeed = 5.0f, sensitivity = 2f, jumpForce = 10f;
+	public float playerSpeed = 5.0f, sensitivity = 2f, jumpForce = 10f, zTeleport = 3f;
 	public bool invertedAxis = false;
 
 	CharacterController player;
@@ -36,8 +36,7 @@ public class Player : MonoBehaviour {
 		Movement ();
 		ApplyGravity ();
 
-		if (Input.GetButtonDown("Jump"))
-		{
+		if (Input.GetButtonDown ("Jump")) {
 			hasJumped = true;
 		}
 	}
