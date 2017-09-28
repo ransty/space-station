@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 		get { return SteamVR_Controller.Input ((int)trackedObj.index); }
 	}
 
-	public GameObject eyes;
+	//public GameObject eyes;
 
 	float moveFB, moveLR, verticalVelocity, rotX, rotY;
 
@@ -103,9 +103,9 @@ public class Player : MonoBehaviour {
 		transform.Rotate (0, rotX, 0);
 
 		if (!invertedAxis) {
-			eyes.transform.Rotate (-rotY, 0, 0);
+			//eyes.transform.Rotate (-rotY, 0, 0);
 		} else {
-			eyes.transform.Rotate (rotY, 0, 0);
+			//eyes.transform.Rotate (rotY, 0, 0);
 		}
 
 		movement = transform.rotation * movement;
