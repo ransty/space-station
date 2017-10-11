@@ -2,50 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour {
+public class LightSwitch : MonoBehaviour
+{
 
-	public Light dirLight;
-	public Material lightOn;
-	public Material lightOff;
+    public Light dirLight;
+    public Light secondLight;
+    public Material lightOn;
+    public Material lightOff;
 
-	public GameObject crosshair;
+    bool isColliding = false;
+    public bool multipleLights = false;
 
-	bool isLightOn = false;
+    bool isLightOn = false;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
 
-	// Update is called once per frame
-	void Update () {
+    }
 
-	}
+    // Update is called once per frame
+    void Update()
+    {
 
-	void OnTriggerEnter(Collider other) {
-		// light is on = light is off
-		isLightOn = !isLightOn;
-		// enabled = false
-		dirLight.enabled = isLightOn;
-		if (isLightOn) {
-			this.GetComponent<Renderer> ().material = lightOn;
-		} else {
-			this.GetComponent<Renderer> ().material = lightOff;
-		}
-	}
+    }
 
-	void OnMouseDown() {
-		// check to make sure player is near the switch and the crosshair is on da button cx
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject)
+        {
+            // light is on = light is off
+            isLightOn = !isLightOn;
+            // enabled = false
+            dirLight.enabled = isLightOn;
+            if (multipleLights)
+            {
+                secondLight.enabled = isLightOn;
+            }
+            if (isLightOn)
+            {
+                this.GetComponent<Renderer>().material = lightOn;
+                if (multipleLights)
+                {
+                    this.GetComponent<Renderer>().material = lightOn;
+                }
 
-		// light is on = light is off
-		isLightOn = !isLightOn;
-		// enabled = false
-		dirLight.enabled = isLightOn;
-		if (isLightOn) {
-			this.GetComponent<Renderer> ().material = lightOn;
-		} else {
-			this.GetComponent<Renderer> ().material = lightOff;
-		}
-	}
+            }
+            else
+            {
+                this.GetComponent<Renderer>().material = lightOff;
 
+            }
+        }
+    }
 }
